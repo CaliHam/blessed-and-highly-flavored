@@ -1,12 +1,58 @@
+/* Import Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Theme Colors */
 :root {
-  --color-primary: #3490dc;
-  --color-secondary: #ffed4a;
-  --color-background: #ECF3F3;
+  --color-primary: #6A373B;      /* Main font color */
+  --color-secondary: #F9EAE2;    /* Light background color */
+  --color-accent: #B98587;       /* Accent color */
+  --color-background: #E3E8EB;   /* Background for light sections */
+  --color-header-bg: #E3F2F9;    /* Header background color */
+  --color-hover-primary: #85524F;/* Darker shade for hover */
+  --font-sans: 'Open Sans', sans-serif;
 }
 
-/* index.css */
-@layer base {
-  body {
-    @apply text-primaryText;
-  }
+/* Base Styling */
+body {
+  @apply bg-background text-primary font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-primary;
+}
+
+/* Header Specific Styling */
+.header {
+  background-color: var(--color-header-bg);
+}
+
+.header a {
+  color: var(--color-primary);
+}
+
+.header a:hover {
+  color: var(--color-hover-primary);
+}
+
+/* Button Styling */
+.button {
+  @apply px-4 py-2 rounded-md font-medium transition-all;
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.button:hover {
+  background-color: var(--color-hover-primary);
+}
+
+/* Additional Global Styles */
+.container {
+  @apply max-w-screen-lg mx-auto px-4;
+}
+
+/* Example class for text styling */
+.text-accent {
+  color: var(--color-accent);
 }

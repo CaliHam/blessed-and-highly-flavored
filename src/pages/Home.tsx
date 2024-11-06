@@ -1,7 +1,6 @@
-// src/pages/Home.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cakeImage from '../assets/cake-image.png'; // Replace with the path to your main cake image
+import cakeImage from '../assets/cake.png'; // Replace with the path to your main cake image
 
 const Home: React.FC = () => {
   return (
@@ -31,19 +30,19 @@ const Home: React.FC = () => {
         <section className="flex justify-center space-x-8 mb-12">
           <CategoryLink
             label="Birthday"
-            imageSrc="/images/birthday-cake.png" // Placeholder, replace with the actual path
+            imageSrc={cakeImage} // Placeholder, replace with the actual path
           />
           <CategoryLink
             label="Holiday"
-            imageSrc="/images/holiday-cake.png" // Placeholder
+            imageSrc={cakeImage} // Placeholder
           />
           <CategoryLink
             label="Wedding"
-            imageSrc="/images/wedding-cake.png" // Placeholder
+            imageSrc={cakeImage} // Placeholder
           />
           <CategoryLink
             label="Special Occasion"
-            imageSrc="/images/special-cake.png" // Placeholder
+            imageSrc={cakeImage} // Placeholder
           />
         </section>
       </main>

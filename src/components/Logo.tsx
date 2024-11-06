@@ -1,10 +1,11 @@
 // src/components/Logo.tsx
 import React from 'react';
+import logo from "../assets/logo.png"
 
 const Logo: React.FC = () => {
   return (
     <img
-      src="/assets/logo.png"
+      src={logo}
       alt="Logo"
       style={{
         width: '100px',
