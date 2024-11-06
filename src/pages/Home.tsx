@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cakeImage from '../assets/cake.png'; // Replace with the path to your main cake image
+import cakeImage from '../assets/cake.png';
 
 const Home: React.FC = () => {
   return (
@@ -11,9 +11,9 @@ const Home: React.FC = () => {
           <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between space-y-6 md:space-y-0">
             <div className="text-left space-y-4">
               <h2 className="text-4xl font-bold text-primary">Blessed & Highly Flavored</h2>
-              <button className="bg-accent text-white py-2 px-6 rounded-full font-semibold hover:bg-hoverPrimary transition-colors duration-200">
+              <div className="bg-accent text-white py-2 px-6 rounded-full font-semibold w-fit">
                 Cakes by Leanne
-              </button>
+              </div>
             </div>
             <img src={cakeImage} alt="Beautiful cake" className="rounded-md shadow-md w-full md:w-1/2" />
           </div>

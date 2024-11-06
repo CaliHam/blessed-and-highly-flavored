@@ -14,6 +14,10 @@ export default {
         headerBg: '#E3F2F9', // Header background color
         hoverPrimary: '#85524F', // Darker shade for hover
       },
+      fontFamily: {
+        sans: ['Open Sans', 'sans-serif'],
+        serif: ['Times New Roman', 'serif'], // Add Times New Roman here
+      },
     },
   },
   plugins: [],

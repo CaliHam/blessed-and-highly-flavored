@@ -12,11 +12,12 @@
   --color-header-bg: #E3F2F9;    /* Header background color */
   --color-hover-primary: #85524F;/* Darker shade for hover */
   --font-sans: 'Open Sans', sans-serif;
+  --font-serif: 'Times New Roman', serif;
 }
 
 /* Base Styling */
 body {
-  @apply bg-background text-primary font-sans;
+  @apply bg-background text-primary font-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
