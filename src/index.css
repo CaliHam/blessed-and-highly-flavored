@@ -8,8 +8,8 @@
   --color-primary: #6A373B;      /* Main font color */
   --color-secondary: #F9EAE2;    /* Light background color */
   --color-accent: #B98587;       /* Accent color */
-  --color-background: #E3E8EB;   /* Background for light sections */
-  --color-header-bg: #eef4f7;    /* Header background color */
+  --color-background: #f6eded;   /* Background for light sections */
+  --color-header-bg: #f6eded;    /* Header background color */
   --color-hover-primary: #85524F;/* Darker shade for hover */
   --font-sans: 'Open Sans', sans-serif;
   --font-serif: 'Times New Roman', serif;

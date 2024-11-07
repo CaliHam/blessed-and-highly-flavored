@@ -1,8 +1,7 @@
 export interface Cake {
   id: number;
   name: string;
-  category: string;
-  description: string;
+  category: string[];
   price: number;
   imageUrl: string;
 }

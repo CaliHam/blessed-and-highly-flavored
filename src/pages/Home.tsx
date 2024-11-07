@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import cakeImage from '../assets/cake.png';
+import CategoryLink from '../components/CategoryLink';
 
 const Home: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         {/* Hero Section */}
         <section className="w-full flex justify-center items-center bg-custom-gradient shadow-lg mb-12">
           <div className="flex w-full flex-col md:flex-row md:items-start md:justify-between space-y-6 md:space-y-0">
-            <div className="text-left pt-20 pl-10 mb-48 md:w-2/5 lg:w-fit">
+            <div className="text-left pt-20 pl-10 md:mb-80 md:w-2/5 lg:w-fit">
               <h2 className="text-7xl  text-secondary">Blessed & Highly Flavored</h2>
             </div>
             {/* Cake Image Section */}
@@ -31,9 +31,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
-
         {/* Cake Categories */}
-        <section className="flex justify-center space-x-8 mb-12">
+        <section className="flex justify-center gap-10 mb-12">
           <CategoryLink
             label="Birthday"
             imageSrc={cakeImage} // Placeholder, replace with the actual path
@@ -55,18 +54,5 @@ const Home: React.FC = () => {
     </div>
   );
 };
-
-// Category Link Component for Reusability
-const CategoryLink: React.FC<{ label: string; imageSrc: string }> = ({ label, imageSrc }) => (
-  <Link
-    to="/cakes"
-    className="flex flex-col items-center space-y-4 text-primary hover:text-hoverPrimary transition-colors"
-  >
-    <div className="w-24 h-24 rounded-full bg-secondary p-4 flex items-center justify-center shadow-lg">
-      <img src={imageSrc} alt={`${label} cake`} className="rounded-full" />
-    </div>
-    <span className="text-lg font-semibold">{label}</span>
-  </Link>
-);
 
 export default Home;
