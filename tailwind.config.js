@@ -16,7 +16,11 @@ export default {
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
-        serif: ['Times New Roman', 'serif'], // Add Times New Roman here
+        serif: ['Times New Roman', 'serif'],
+        cursive: ['Great Vibes', 'cursive'],
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(90deg, rgba(131,145,156,1) 20%, rgba(241,237,231,1) 100%)',
       },
     },
   },
