@@ -5,32 +5,35 @@ import { Cake, Category } from '../types/cakeTypes';
 interface CategoryCardProps {
   category: Category;
   cakes: Cake[];
-  subcategories: Category[];
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes, subcategories }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes }) => {
   // Choose a random cake from the cakes array
-  const randomCake = cakes[Math.floor(Math.random() * cakes.length)];
+  // const randomCake = cakes[Math.floor(Math.random() * cakes.length)];
+
+  const backgroundImage = cakes.length > 0 ? cakes[0].image_url : '';
 
   return (
-    <div className="flex flex-col items-center bg-secondary rounded-lg shadow-lg p-6 w-full max-w-sm mx-auto mb-8">
-      {/* Cake Image */}
-      <div className="w-40 h-40 mb-4">
-        <img src={randomCake?.image_url} alt={randomCake?.name} className="rounded-lg object-cover w-full h-full" />
-      </div>
+    <Link
+      to={`/cakes/${category.id}`}
+      className="relative group w-full h-[400px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 ease-out transform hover:scale-105"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60 transition-opacity duration-300 ease-out group-hover:opacity-40"></div>
 
       {/* Category Title */}
-      <h3 className="text-2xl font-semibold text-primary mb-4">{category.name}</h3>
-
-      {/* Subcategories Buttons */}
-      <div className="flex flex-wrap justify-center space-x-2">
-        {subcategories.map((sub) => (
-          <Link key={sub.id} to={`/cakes/${sub.id}`} className="bg-accent hover:bg-hoverPrimary text-white rounded-full px-3 py-1 mb-2">
-            {sub.name}
-          </Link>
-        ))}
+      <div className="absolute bottom-4 left-4">
+        <h2 className="text-5xl font-cursive text-red-300 font-bold transition duration-300 ease-out group-hover:text-secondary">
+          {category.name}
+        </h2>
       </div>
-    </div>
+    </Link>
   );
 };
 
