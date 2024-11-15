@@ -45,14 +45,16 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
         {/* Cake Categories */}
         <section className="max-w-5xl mx-auto mb-12">
           <div className="flex justify-center space-x-8">
-            {mainCategories.map((category, index) => (
+            {mainCategories.map((category, index) => {
+              const filteredCakes = cakes.filter(cake => cake.category_id === category.id)
+              return (
               <CategoryCircle
                 key={index}
                 label={category.name}
-                cakes={cakes.filter(cake => cake.id === category.id)}
+                cakes={filteredCakes}
                 linkTo={`/cakes/category?category=${category.id}`}
               />
-            ))}
+            )})};
           </div>
         </section>
       </main>

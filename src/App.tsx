@@ -3,25 +3,33 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Cakes from "./pages/Cakes";
-import { mockCakes, mockCategories } from "./services/mockData";
+// import { mockCakes, mockCategories } from "./services/mockData";
 import { Category, Cake } from "./types/cakeTypes";
 import CategoryCakes from "./pages/CategoryCakes";
+import { fetchCategories, fetchCakes } from "./services/cakesService";
 // import Contact from './pages/Contact';
 
 const App: React.FC = () => {
-	const [categories, setCategories] = useState<Category[]>(mockCategories);
-	const [cakes, setCakes] = useState<Cake[]>(mockCakes);
+	const [categories, setCategories] = useState<Category[]>([]);
+	const [cakes, setCakes] = useState<Cake[]>([]);
 
-	// Placeholder for useEffect to fetch data from Supabase
 	useEffect(() => {
-		// Example code for fetching data
-		// async function fetchData() {
-		//   const categoriesData = await fetchCategoriesFromSupabase();
-		//   const cakesData = await fetchCakesFromSupabase();
-		//   setCategories(categoriesData);
-		//   setCakes(cakesData);
-		// }
-		// fetchData();
+		const loadData = async () => {
+			try {
+				const [categoriesData, cakesData] = await Promise.all([
+					fetchCategories(),
+					fetchCakes()
+				]);
+				setCategories(categoriesData);
+				setCakes(cakesData);
+
+			} catch (error) {
+				console.error('Error loading data:', error);
+			}
+		};
+
+		loadData();
+
 	}, []);
 
 	return (
