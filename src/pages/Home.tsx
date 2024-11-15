@@ -1,15 +1,23 @@
 import React from 'react';
 import cakeImage from '../assets/cake.png';
-import CategoryLink from '../components/CategoryLink';
+import CategoryCircle from '../components/CategoryCircle';
+import { Cake, Category } from '../types/cakeTypes';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  categories: Category[];
+  cakes: Cake[];
+}
+
+const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
+  const mainCategories = categories.filter((category) => category.parent_id === null);
+
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-background">
       <main className="text-center pb-12 ">
         {/* Hero Section */}
-        <section className="w-full flex justify-center items-center bg-custom-gradient shadow-lg mb-12">
+        <section className="w-full flex justify-center items-center bg-custom-gradient">
           <div className="flex w-full flex-col md:flex-row md:items-start md:justify-between space-y-6 md:space-y-0">
-            <div className="text-left pt-20 pl-10 md:mb-80 md:w-2/5 lg:w-fit">
+            <div className="text-left pt-20 pl-10 md:mb-60 md:w-2/5 lg:w-fit">
               <h2 className="text-7xl  text-secondary">Blessed & Highly Flavored</h2>
             </div>
             {/* Cake Image Section */}
@@ -22,7 +30,7 @@ const Home: React.FC = () => {
               />
             </div>
             {/* Quote Section */}
-            <section className="text-primary font-cursive italic text-3xl pt-20">
+            <section className="text-primary font-cursive italic text-3xl pt-20 pr-10">
               <p className="max-w-xl mx-auto">
                 “Taste and see that the Lord is good.” <br/> 
                 <span className="font-serif text-2xl">Psalm 34:8</span>
@@ -30,25 +38,22 @@ const Home: React.FC = () => {
             </section>
           </div>
         </section>
+        <div className='bg-home-banner h-28 w-full  shadow-lg mb-12'>
+
+        </div>
 
         {/* Cake Categories */}
-        <section className="flex justify-center gap-10 mb-12">
-          <CategoryLink
-            label="Birthday"
-            imageSrc={cakeImage} // Placeholder, replace with the actual path
-          />
-          <CategoryLink
-            label="Holiday"
-            imageSrc={cakeImage} // Placeholder
-          />
-          <CategoryLink
-            label="Wedding"
-            imageSrc={cakeImage} // Placeholder
-          />
-          <CategoryLink
-            label="Special Occasion"
-            imageSrc={cakeImage} // Placeholder
-          />
+        <section className="max-w-5xl mx-auto mb-12">
+          <div className="flex justify-center space-x-8">
+            {mainCategories.map((category, index) => (
+              <CategoryCircle
+                key={index}
+                label={category.name}
+                cakes={cakes.filter(cake => cake.id === category.id)}
+                linkTo={`/cakes/category?category=${category.id}`}
+              />
+            ))}
+          </div>
         </section>
       </main>
     </div>
