@@ -21,6 +21,7 @@ export default {
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, rgba(131,145,156,1) 20%, rgba(241,237,231,1) 100%)',
+        'cake-categories': 'linear-gradient(0deg, rgba(234,204,191,1) 0%, rgba(236,230,221,1) 100%)',
       },
     },
   },

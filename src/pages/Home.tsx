@@ -1,6 +1,6 @@
 import React from 'react';
 import cakeImage from '../assets/cake.png';
-import CategoryLink from '../components/CategoryLink';
+// import CategoryLink from '../components/CategoryLink';
 
 const Home: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* Cake Categories */}
-        <section className="flex justify-center gap-10 mb-12">
+        {/* <section className="flex justify-center gap-10 mb-12">
           <CategoryLink
             label="Birthday"
             imageSrc={cakeImage} // Placeholder, replace with the actual path
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             label="Special Occasion"
             imageSrc={cakeImage} // Placeholder
           />
-        </section>
+        </section> */}
       </main>
     </div>
   );
