@@ -15,12 +15,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes }) => {
 
   return (
     <Link
-      to={`/cakes/${category.id}`}
-      className="relative group w-full h-[400px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 ease-out transform hover:scale-105"
+      to={`/cakes?category=${category.name}`}
+      className="relative group w-full h-[500px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 ease-out transform hover:scale-105"
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center blur-sm"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
 

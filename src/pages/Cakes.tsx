@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { mockCakes, mockCategories } from '../services/mockData';
 import { Cake, Category } from '../types/cakeTypes';
 import CategoryCard from '../components/CategoryCard';
 
-const Cakes = () => {
-  const [categories, setCategories] = useState<Category[]>(mockCategories);
-  const [cakes, setCakes] = useState<Cake[]>(mockCakes);
+interface CakesProps {
+  categories: Category[];
+  cakes: Cake[];
+}
 
+const Cakes: React.FC<CakesProps> = ({ categories, cakes }) => {
   const mainCategories = categories.filter((category) => category.parent_id === null);
 
   return (
