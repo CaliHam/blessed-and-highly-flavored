@@ -14,19 +14,23 @@ const App: React.FC = () => {
 	const [cakes, setCakes] = useState<Cake[]>([]);
 
 	useEffect(() => {
-    const loadData = async () => {
-      try {
-        const categoriesData = await fetchCategories();
-        const cakesData = await fetchCakes();
-        setCategories(categoriesData);
-        setCakes(cakesData);
-      } catch (error) {
-        console.error('Error loading data:', error);
-      }
-    };
+		const loadData = async () => {
+			try {
+				const [categoriesData, cakesData] = await Promise.all([
+					fetchCategories(),
+					fetchCakes()
+				]);
+				setCategories(categoriesData);
+				setCakes(cakesData);
 
-    loadData();
-  }, []);
+			} catch (error) {
+				console.error('Error loading data:', error);
+			}
+		};
+
+		loadData();
+
+	}, []);
 
 	return (
 		<Router>

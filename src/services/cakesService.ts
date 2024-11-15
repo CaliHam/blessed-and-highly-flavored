@@ -3,22 +3,21 @@ import { supabase } from '../../supabaseClient';
 
 // Fetch all categories
 export const fetchCategories = async (): Promise<Category[]> => {
-  const { data, error } = await supabase
+  const { data: categories, error } = await supabase
     .from('categories')
     .select('*')
-    .order('name');
 
   if (error) {
     console.error('Error fetching categories:', error);
     throw error;
   }
 
-  return data || [];
+  return categories;
 };
 
 // Fetch all cakes
 export const fetchCakes = async (): Promise<Cake[]> => {
-  const { data, error } = await supabase
+  const { data: cakes, error } = await supabase
     .from('cakes')
     .select('*');
 
@@ -27,7 +26,7 @@ export const fetchCakes = async (): Promise<Cake[]> => {
     throw error;
   }
 
-  return data || [];
+  return cakes;
 };
 
 // Fetch cakes by category
@@ -42,5 +41,5 @@ export const fetchCakesByCategory = async (categoryId: number): Promise<Cake[]> 
     throw error;
   }
 
-  return data || [];
+  return data;
 };
