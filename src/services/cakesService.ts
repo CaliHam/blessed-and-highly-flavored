@@ -1,10 +1,46 @@
-// import { Cake } from "../types/cakeTypes";
+import { Category, Cake } from "../types/cakeTypes";
+import { supabase } from '../../supabaseClient';
 
-// export const getCakes = async (): Promise<Cake[]> => {
-//   // Logic to fetch cakes from backend or database
-  
-// };
+// Fetch all categories
+export const fetchCategories = async (): Promise<Category[]> => {
+  const { data, error } = await supabase
+    .from('categories')
+    .select('*')
+    .order('name');
 
-// export const addCake = async (cake: Cake): Promise<void> => {
-//   // Logic to add a new cake
-// };
+  if (error) {
+    console.error('Error fetching categories:', error);
+    throw error;
+  }
+
+  return data || [];
+};
+
+// Fetch all cakes
+export const fetchCakes = async (): Promise<Cake[]> => {
+  const { data, error } = await supabase
+    .from('cakes')
+    .select('*');
+
+  if (error) {
+    console.error('Error fetching cakes:', error);
+    throw error;
+  }
+
+  return data || [];
+};
+
+// Fetch cakes by category
+export const fetchCakesByCategory = async (categoryId: number): Promise<Cake[]> => {
+  const { data, error } = await supabase
+    .from('cakes')
+    .select('*')
+    .eq('category_id', categoryId);
+
+  if (error) {
+    console.error(`Error fetching cakes for category ${categoryId}:`, error);
+    throw error;
+  }
+
+  return data || [];
+};
