@@ -15,7 +15,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes }) => {
 
   return (
     <Link
-      to={`/cakes?category=${category.name}`}
+      to={`/cakes/category?category=${category.id}`}
       className="relative group w-full h-[500px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 ease-out transform hover:scale-105"
     >
       {/* Background Image */}

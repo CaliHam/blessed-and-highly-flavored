@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
                 key={index}
                 label={category.name}
                 cakes={cakes.filter(cake => cake.id === category.id)}
-                linkTo={`/cakes?category=${category.name}`}
+                linkTo={`/cakes/category?category=${category.id}`}
               />
             ))}
           </div>

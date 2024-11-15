@@ -3,6 +3,7 @@ export interface Cake {
   name: string;
   category_id: number;
   image_url: string;
+  description: string | null;
 }
 
 export interface Category {
