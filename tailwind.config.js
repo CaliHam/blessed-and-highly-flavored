@@ -10,6 +10,7 @@ export default {
         primary: '#6A4C3F', // Main font color
         secondary: '#FFF5E1', // Light background color
         accent: '#F26D80', // Accent color for buttons or highlights
+        accent2: '#B488C2',
         background: '#FCD5DC', // Background for light sections
         headerBg: '#FCD5DC', // Header background color
         hoverPrimary: '#DA495C', // hover color
