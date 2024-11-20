@@ -15,9 +15,9 @@ export default {
         hoverPrimary: '#85524F', // Darker shade for hover
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
-        serif: ['Times New Roman', 'serif'],
-        cursive: ['Great Vibes', 'cursive'],
+        title: ['Pacifico', 'sans-serif'],
+        body: ['Montserrat', 'serif'],
+        cursive: ['Dancing Script', 'cursive'],
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(90deg, rgba(131,145,156,1) 20%, rgba(241,237,231,1) 100%)',

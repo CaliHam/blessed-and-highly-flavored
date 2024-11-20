@@ -11,10 +11,10 @@ const CakeCard: React.FC<CakeCardProps> = ({ cake }) => {
       <img
         src={cake.image_url}
         alt={cake.name}
-        className="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-20"
+        className="w-full h-max object-cover transition-opacity duration-300 group-hover:opacity-20"
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <p className="text-white text-lg px-4">{cake.description || "No description available"}</p>
+        <p className="text-white text-lg px-4">{cake.description || ""}</p>
       </div>
       <div className="absolute bottom-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-lg font-semibold">
         {cake.name}
