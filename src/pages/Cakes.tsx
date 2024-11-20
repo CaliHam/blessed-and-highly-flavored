@@ -10,7 +10,7 @@ const Cakes: React.FC<CakesProps> = ({ categories, cakes }) => {
   const mainCategories = categories.filter((category) => category.parent_id === null);
 
   return (
-    <div className="bg-cake-categories p-8">
+    <div className="bg-hero-pattern bg-hero-bg bg-repeat p-8">
       {/* Header Section */}
       {/* <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary mb-4">Categories</h1>
