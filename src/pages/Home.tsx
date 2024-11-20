@@ -18,7 +18,7 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
         {/* Hero Section */}
         <section
           className="w-full bg-no-repeat bg-cover bg-center relative"
-          style={{ backgroundImage: `url(${banner})`, height: '700px' }}
+          style={{ backgroundImage: `url(${banner})`, height: '600px' }}
         >
           {/* Centered Title */}
           <div className="absolute top-10 left-1/2 transform -translate-x-1/2 text-center w-full">
@@ -31,7 +31,7 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
           <div className="">
             <div className="absolute inset-0 flex items-center justify-center">
               {/* Cake Image */}
-              <div className="relative pt-18">
+              <div className="relative pt-24">
                 <img
                   src={cakeImage}
                   alt="Beautiful cake"
@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
         </section>
 
         {/* Cake Categories */}
-        <section className="max-w-5xl mx-auto mb-12">
+        <section className="max-w-5xl mt-20 mx-auto mb-12">
           <div className="flex justify-center space-x-8">
             {mainCategories.map((category, index) => {
               const filteredCakes = cakes.filter(cake => cake.category_id === category.id);

@@ -12,7 +12,7 @@ export default {
         accent: '#B98587', // Accent color for buttons or highlights
         background: '#f6eded', // Background for light sections
         headerBg: '#f6eded', // Header background color
-        hoverPrimary: '#85524F', // Darker shade for hover
+        hoverPrimary: '#DA495C', // Your hover color
       },
       fontFamily: {
         title: ['Pacifico', 'sans-serif'],
