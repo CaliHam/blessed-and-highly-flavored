@@ -13,9 +13,9 @@ const Cakes: React.FC<CakesProps> = ({ categories, cakes }) => {
     <div className="bg-hero-pattern bg-hero-bg bg-repeat p-8 h-full">
       {/* Header Section */}
       <header className="text-center mb-12">
-        <h1 className="text-5xl font-bold font-title text-primary mb-4">Categories</h1>
+        {/* <h1 className="text-5xl font-bold font-title text-primary mb-4">Categories</h1> */}
         <p className="text-lg text-primary">
-          Discover a variety of cakes for every occasion. Click on a category to see past cakes I've made throughout the years.
+          Discover a variety of cakes for every occasion. Explore the galleries below to see past cakes I've made throughout the years.
         </p>
       </header>
 

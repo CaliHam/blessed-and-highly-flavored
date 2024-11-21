@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-accent2 text-primary py-8">
+    <footer className="bg-background text-primary py-8">
       {/* Footer Content Wrapper */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         {/* Social Media Links */}
@@ -37,11 +37,13 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="text-center">
-          <p className="font-cursive italic text-lg md:text-xl">
+        <div className="quote">
+          <hr className="border-t-2 border-primary w-1/3 mx-auto" />
+          <p className="font-cursive italic text-lg text-primary text-center mt-2">
             “Taste and see that the Lord is good.”
           </p>
-          <span className="font-body text-sm md:text-base">Psalm 34:8</span>
+          <span className="block text-center text-accent">Psalm 34:8</span>
+          <hr className="border-t-2 border-primary w-1/3 mx-auto mt-2" />
         </div>
 
         {/* Copyright Section */}
