@@ -2,6 +2,7 @@ import React from 'react';
 import cakeImage from '../assets/cake.png';
 import CategoryCircle from '../components/CategoryCircle';
 import { Cake, Category } from '../types/cakeTypes';
+import banner from '../assets/banner.svg'
 
 interface HomeProps {
   categories: Category[];
@@ -13,48 +14,55 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
 
   return (
     <div className="bg-background">
-      <main className="text-center pb-12 ">
+      <main className="text-center pb-12">
         {/* Hero Section */}
-        <section className="w-full flex justify-center items-center bg-custom-gradient">
-          <div className="flex w-full flex-col md:flex-row md:items-start md:justify-between space-y-6 md:space-y-0">
-            <div className="text-left pt-20 pl-10 md:mb-60 md:w-2/5 lg:w-fit">
-              <h2 className="text-7xl  text-secondary">Blessed & Highly Flavored</h2>
-            </div>
-            {/* Cake Image Section */}
-            <div className="relative w-full md:w-1/2 md:mx-auto">
-              <img
-                src={cakeImage}
-                alt="Beautiful cake"
-                className="w-[400px] md:w-[500px] xl:w-[600px] md:absolute md:top-0 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/4 z-10"
-                style={{ maxWidth: 'unset' }} // Optional, to allow it to grow naturally
-              />
+        <section
+          className="w-full bg-no-repeat bg-cover bg-center relative"
+          style={{ backgroundImage: `url(${banner})`, height: '600px' }}
+        >
+          {/* Centered Title */}
+          <div className="absolute top-10 left-1/2 transform -translate-x-1/2 text-center w-full">
+            <h2 className="text-7xl font-title text-secondary font-bold ">
+              Blessed & Highly Flavored
+            </h2>
+          </div>
+
+          {/* Cake and Quote Section */}
+          <div className="">
+            <div className="absolute inset-0 flex items-center justify-center">
+              {/* Cake Image */}
+              <div className="relative pt-24">
+                <img
+                  src={cakeImage}
+                  alt="Beautiful cake"
+                  className="w-[300px] md:w-[400px] lg:w-[500px]"
+                />
+              </div>
             </div>
             {/* Quote Section */}
-            <section className="text-primary font-cursive italic text-3xl pt-20 pr-10">
-              <p className="max-w-xl mx-auto">
-                “Taste and see that the Lord is good.” <br/> 
-                <span className="font-serif text-2xl">Psalm 34:8</span>
+            <div className="absolute right-10 top-52 text-primary font-cursive italic text-3xl max-w-sm">
+              <p>
+                “Taste and see that the Lord is good.” <br />
+                <span className="font-body text-2xl">Psalm 34:8</span>
               </p>
-            </section>
+            </div>
           </div>
         </section>
-        <div className='bg-home-banner h-28 w-full  shadow-lg mb-12'>
-
-        </div>
 
         {/* Cake Categories */}
-        <section className="max-w-5xl mx-auto mb-12">
+        <section className="max-w-5xl mt-20 mx-auto mb-12">
           <div className="flex justify-center space-x-8">
             {mainCategories.map((category, index) => {
-              const filteredCakes = cakes.filter(cake => cake.category_id === category.id)
+              const filteredCakes = cakes.filter(cake => cake.category_id === category.id);
               return (
-              <CategoryCircle
-                key={index}
-                label={category.name}
-                cakes={filteredCakes}
-                linkTo={`/cakes/category?category=${category.id}`}
-              />
-            )})};
+                <CategoryCircle
+                  key={index}
+                  label={category.name}
+                  cakes={filteredCakes}
+                  linkTo={`/cakes/category?category=${category.id}`}
+                />
+              );
+            })}
           </div>
         </section>
       </main>

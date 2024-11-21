@@ -7,17 +7,23 @@ interface CakeCardProps {
 
 const CakeCard: React.FC<CakeCardProps> = ({ cake }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105">
+      {/* Image Section */}
       <img
         src={cake.image_url}
         alt={cake.name}
-        className="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-20"
+        className="w-full h-90 object-cover"
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <p className="text-white text-lg px-4">{cake.description || "No description available"}</p>
-      </div>
-      <div className="absolute bottom-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-lg font-semibold">
-        {cake.name}
+
+      {/* Content Section */}
+      <div className="p-4 text-center">
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-primary mb-2">{cake.name}</h3>
+        
+        {/* Description */}
+        {cake.description && (
+          <p className="text-sm text-gray-600">{cake.description}</p>
+        )}
       </div>
     </div>
   );

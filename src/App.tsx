@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import Cakes from "./pages/Cakes";
+import Cakes from "./pages/Gallery";
 // import { mockCakes, mockCategories } from "./services/mockData";
 import { Category, Cake } from "./types/cakeTypes";
 import CategoryCakes from "./pages/CategoryCakes";
 import { fetchCategories, fetchCakes } from "./services/cakesService";
+import Footer from "./components/Footer";
 // import Contact from './pages/Contact';
 
 const App: React.FC = () => {
@@ -49,6 +50,7 @@ const App: React.FC = () => {
 					element={<CategoryCakes categories={categories} cakes={cakes} />}
 				/>
 			</Routes>
+			<Footer />
 		</Router>
 	);
 };
