@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Cake } from "../types/cakeTypes";
 import rightChevron from '../assets/right-chevron.png'
+import leftChevron from '../assets/left-chevron.png'
 
 interface CategoryCakesProps {
 	cakes: Cake[];
@@ -37,9 +38,9 @@ const CategoryCakes: React.FC<CategoryCakesProps> = ({ cakes, currentCategory })
         {/* Left Arrow */}
         <button
           onClick={handlePrev}
-          className="absolute -left-10 text-primary hover:bg-opacity-100 transition"
+          className="absolute -left-10 text-primary transition-transform duration-300 hover:translate-x-[-5px]"
         >
-          <img src={rightChevron}/>
+          <img src={leftChevron} />
         </button>
 
         {/* Main Cake Image */}
@@ -57,7 +58,7 @@ const CategoryCakes: React.FC<CategoryCakesProps> = ({ cakes, currentCategory })
         {/* Right Arrow */}
         <button
           onClick={handleNext}
-          className="absolute -right-10 text-primary hover:bg-opacity-100 transition"
+          className="absolute -right-10 text-primary transition-transform duration-300 hover:translate-x-[5px]"
         >
           <img src={rightChevron}/>
         </button>

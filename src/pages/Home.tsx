@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import cakeImage from '../assets/cake.png';
+import cakesCollage from '../assets/collage.png'
 import { Cake, Category } from '../types/cakeTypes';
 import banner from '../assets/banner.svg'
 import CategoryCakes from '../components/CategoryCakes';
@@ -79,6 +80,19 @@ const Home: React.FC= () => {
           cakes={cakes}
           currentCategory={currentCategory}
         />
+      </section>
+      <section className="bg-white w-full p-6 rounded-lg shadow-lg justify-center align-middle text-center my-8">
+        <h3 className="text-2xl font-cursive text-primary mb-4">Let's Celebrate Together</h3>
+        <p className="text-lg text-gray-700 font-body">Have an upcoming celebration? Let us help make it unforgettable with a custom cake made just for you!</p>
+        <a
+          href="/contact"
+          className="mt-4 inline-block bg-accent text-white text-lg px-6 py-2 rounded-lg shadow hover:bg-hoverPrimary transition"
+        >
+          Contact Me
+        </a>
+        <div className="flex justify-center mt-6">
+          <img src={cakesCollage} alt="Cakes Collage" className="max-w-full h-auto" />
+        </div>
       </section>
     </div>
   );
