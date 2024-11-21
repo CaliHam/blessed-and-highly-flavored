@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import cakeImage from '../assets/cake.png';
-import CategoryCircle from '../components/CategoryCircle';
+// import CategoryCircle from '../components/CategoryCircle';
 import { Cake, Category } from '../types/cakeTypes';
 import banner from '../assets/banner.svg'
+import Cakes from './Gallery';
+import CategoryCakes from '../components/CategoryCakes';
+import { fetchCategories, fetchCakes } from '../services/cakesService';
 
-interface HomeProps {
-  categories: Category[];
-  cakes: Cake[];
-}
 
-const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
-  const mainCategories = categories.filter((category) => category.parent_id === null);
+
+const Home: React.FC= () => {
+  // const mainCategories = categories.filter((category) => category.parent_id === null);
+  const [currentCategory, setCurrentCategory] = useState<number>(1)
+  const [categories, setCategories] = useState<Category[]>([]);
+	const [cakes, setCakes] = useState<Cake[]>([]);
+
+	useEffect(() => {
+		const loadData = async () => {
+			try {
+				const [categoriesData, cakesData] = await Promise.all([
+					fetchCategories(),
+					fetchCakes()
+				]);
+				setCategories(categoriesData);
+				setCakes(cakesData);
+
+			} catch (error) {
+				console.error('Error loading data:', error);
+			}
+		};
+    
+		loadData();
+	}, []);
 
   return (
     <div className="bg-background">
@@ -48,24 +69,21 @@ const Home: React.FC<HomeProps> = ({ categories, cakes }) => {
             </div>
           </div>
         </section>
-
-        {/* Cake Categories */}
-        <section className="max-w-5xl mt-20 mx-auto mb-12">
-          <div className="flex justify-center space-x-8">
-            {mainCategories.map((category, index) => {
-              const filteredCakes = cakes.filter(cake => cake.category_id === category.id);
-              return (
-                <CategoryCircle
-                  key={index}
-                  label={category.name}
-                  cakes={filteredCakes}
-                  linkTo={`/cakes/category?category=${category.id}`}
-                />
-              );
-            })}
-          </div>
-        </section>
       </main>
+
+      <section id="gallery"  className="mt-12">
+        {/* <h3 className="text-4xl font-title font-semibold text-primary mb-6">Gallery</h3> */}
+        <Cakes
+          categories={categories}
+          cakes={cakes}
+          currentCategory={currentCategory}
+          setCurrentCategory={setCurrentCategory}
+        />
+        <CategoryCakes
+          cakes={cakes}
+          currentCategory={currentCategory}
+        />
+      </section>
     </div>
   );
 };
