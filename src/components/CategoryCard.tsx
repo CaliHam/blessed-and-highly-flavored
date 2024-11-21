@@ -17,6 +17,14 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes, currentCat
     category.id === currentCategory ? 'border-2 border-accent' : ''
   }`;
 
+  const headerClass = `text-3xl md:text-5xl font-cursive font-bold drop-shadow-md transition duration-300 ease-out group-hover:text-accent ${
+    category.id === currentCategory ? 'text-accent' : 'text-white'
+  }`
+
+  const overlayClass = `absolute inset-0 bg-gradient-to-t from-black via-transparent to-black transition-opacity duration-300 ease-out group-hover:opacity-50 ${
+    category.id === currentCategory ? 'opacity-50' : 'opacity-70'
+  }`
+
   return (
     <button
       onClick={() => setCurrentCategory(category.id)}
@@ -29,12 +37,12 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, cakes, currentCat
       ></div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-70 transition-opacity duration-300 ease-out group-hover:opacity-50"></div>
+      <div className={overlayClass}></div>
 
       {/* Category Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
         {/* Category Title */}
-        <h2 className="text-3xl md:text-5xl font-cursive text-white font-bold drop-shadow-md transition duration-300 ease-out group-hover:text-accent">
+        <h2 className={headerClass}>
           {category.name}
         </h2>
       </div>

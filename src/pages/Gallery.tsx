@@ -1,14 +1,14 @@
 import { Cake, Category } from '../types/cakeTypes';
 import CategoryCard from '../components/CategoryCard';
 
-interface CakesProps {
+interface GalleryProps {
   categories: Category[];
   cakes: Cake[];
   currentCategory: number;
   setCurrentCategory: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Cakes: React.FC<CakesProps> = ({ categories, cakes, currentCategory, setCurrentCategory }) => {
+const Gallery: React.FC<GalleryProps> = ({ categories, cakes, currentCategory, setCurrentCategory }) => {
   const mainCategories = categories.filter((category) => category.parent_id === null);
 
   return (
@@ -33,4 +33,4 @@ const Cakes: React.FC<CakesProps> = ({ categories, cakes, currentCategory, setCu
   );
 };
 
-export default Cakes;
+export default Gallery;

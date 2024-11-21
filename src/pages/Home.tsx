@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import cakeImage from '../assets/cake.png';
-// import CategoryCircle from '../components/CategoryCircle';
 import { Cake, Category } from '../types/cakeTypes';
 import banner from '../assets/banner.svg'
-import Cakes from './Gallery';
 import CategoryCakes from '../components/CategoryCakes';
 import { fetchCategories, fetchCakes } from '../services/cakesService';
-
-
+import Gallery from './Gallery';
 
 const Home: React.FC= () => {
-  // const mainCategories = categories.filter((category) => category.parent_id === null);
   const [currentCategory, setCurrentCategory] = useState<number>(1)
   const [categories, setCategories] = useState<Category[]>([]);
 	const [cakes, setCakes] = useState<Cake[]>([]);
@@ -29,7 +25,7 @@ const Home: React.FC= () => {
 				console.error('Error loading data:', error);
 			}
 		};
-    
+
 		loadData();
 	}, []);
 
@@ -73,7 +69,7 @@ const Home: React.FC= () => {
 
       <section id="gallery"  className="mt-12">
         {/* <h3 className="text-4xl font-title font-semibold text-primary mb-6">Gallery</h3> */}
-        <Cakes
+        <Gallery
           categories={categories}
           cakes={cakes}
           currentCategory={currentCategory}

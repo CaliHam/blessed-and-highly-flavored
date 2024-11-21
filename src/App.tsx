@@ -7,8 +7,6 @@ import Footer from "./components/Footer";
 // import AboutMe from './pages/AboutMe';
 
 const App: React.FC = () => {
-	
-
 	return (
 		<Router>
 			<Header />
