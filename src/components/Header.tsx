@@ -21,10 +21,10 @@ const Header: React.FC = () => (
           <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-hoverPrimary transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link
-          to="/cakes"
+          to="/aboutme"
           className="group relative text-1xl transition-colors duration-200"
         >
-          Gallery
+          About Me
           <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-hoverPrimary transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link
